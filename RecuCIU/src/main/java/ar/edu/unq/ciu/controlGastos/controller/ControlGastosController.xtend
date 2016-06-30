@@ -8,6 +8,7 @@ import org.uqbar.xtrest.api.XTRest
 import org.uqbar.xtrest.api.annotation.Post
 import org.uqbar.commons.model.UserException
 import org.uqbar.xtrest.api.Result
+import org.uqbar.xtrest.api.annotation.Put
 
 @Controller
 class ControlGastosController extends ResultFactory {
@@ -34,6 +35,21 @@ class ControlGastosController extends ResultFactory {
 			notFound(e.message)
 		}
 	}
+	
+	@Put('/registracion/:nombreUsuario/:password')
+	def registracion(){
+		response.contentType = "application/json"
+		val nomUsuario = String.valueOf(nombreUsuario)
+		val contrasenia = String.valueOf(password)
+		try{
+			repositorio.registrarUsuario(nomUsuario, contrasenia)
+			ok()
+		} catch (UserException e) {
+			notFound(e.message);
+		}
+
+	}	
+
   
   def static void main(String[] args) {
         XTRest.start(ControlGastosController, 9000)
