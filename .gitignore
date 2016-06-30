@@ -6,3 +6,5 @@ xtend-gen
 .settings
 RecuCIU/target/
 /src/main/webapp/node_modules
+node_modules/
+libs/
