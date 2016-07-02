@@ -10,25 +10,11 @@
     opacity: 0.6;
  }
 
-.mi-navbar{
-    opacity: 0.8;
-    background-color:#610B0B;
-}
-
 .mi-row{
   color: darkgrey;
   top: 10px;
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 20px;
-}
-
-.logo{
-  width: 100px;
-  display: inline-block;
-  position:absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: -3%;
 }
 
 .top-center{

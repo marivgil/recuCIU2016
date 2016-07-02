@@ -1,2 +1,25 @@
+<section ng-controller="GastosController as controller">
 
-<p>Estoy en el cachito de registracion</p>
+<div class="text-center">
+    <header class="text-primary">
+    	<h4>Control de Gastos</h4>
+    	<h4>Registracion</h4>
+    </header>
+    <br>
+
+	<form class="form-horizontal" role="form">
+
+		<div class="form-group">
+	    		<label for="inputUsuario" class="control-label">Nombre de usuario</label>
+	      		<input type="text" class="form-control" id="inputUsuario" class="form-group has-error">
+	  	</div>
+	  
+	  	<div class="form-group">
+	      		<label for="inputPassword" class="control-label">Contraseña</label>
+	      		<input type="password" class="form-control" id="inputPassword" class="form-group has-error">
+	  	</div>
+	</form>
+
+	<button type="button" class="btn btn-success" ng-click="registrarme()" aria-hidden="true">Registrarme</button>
+</div>
+</section>

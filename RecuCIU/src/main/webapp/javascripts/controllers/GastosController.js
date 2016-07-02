@@ -4,5 +4,7 @@ controlGastos.controller("GastosController", function ($state, $scope) {
         $state.go("gastos");
     }
 
+    
+
 });
 
