@@ -1,0 +1,37 @@
+<section ng-controller="GastosController as controller">
+	<div class="container col-md-12 text-center">
+      <header class="col-md-4 text-center text-primary">
+        <h4>Control de Gastos</h4>
+      </header>
+  
+    <div>
+      <div class="col-md-4 box table-datos" >
+        <ul id="ulNombreUsuario" class="">
+          <li class="">Usuario</li>
+        	<li class="campo">
+            <input name="inputNombreUsuario" id="inputNombreUsuario" type="text" data-rule-required="true" class="" placeholder="Usuario" data-msg-required="Introducí tu usuario" />
+          </li>
+        </ul>
+                
+        <ul id="ulContrasenia" class="campo">
+        	<li class="">Contraseña</li>
+	        <li class="campo">
+    	        <input name="inputContrasenia" type="password" id="inputContrasenia" class="" data-rule-required="true"  placeholder="contrasenia" data-msg-required="Por favor, introduzca su clave" />
+          </li>
+        </ul>
+      </div>       
+    </div>
+
+    <div class="btn_position">
+      <button type="button" class="btn btn-primary btn_position btn-sm"  aria-hidden="true"  ng-click="ingresar()">Ingresar</button>
+    </div>
+    
+    <div class="registrar_position">
+        <small> 
+        	<a href="views/registracion.html">
+        		¿No tenes usuario registrado?
+        	</a>
+        </small>
+    </div>
+  </div>  
+</section>
