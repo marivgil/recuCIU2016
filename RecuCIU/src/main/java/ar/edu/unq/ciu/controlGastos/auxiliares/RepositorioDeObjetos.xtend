@@ -9,6 +9,7 @@ import ar.edu.unq.ciu.controlGastos.excepciones.ErrorContraseniaCaracterNumerico
 import ar.edu.unq.ciu.controlGastos.excepciones.ExisteElUsuario
 import ar.edu.unq.ciu.controlGastos.dominio.Gasto
 import ar.edu.unq.ciu.controlGastos.dominio.Detalle
+import ar.edu.unq.ciu.controlGastos.excepciones.ErrorValorNulo
 
 class RepositorioDeObjetos {
 	
@@ -53,9 +54,21 @@ class RepositorioDeObjetos {
 	}
 	
 	def registrarUsuario(String nombre, String contrasenia){
-		//validarExistenciaDeUsuario(nombre)
-		//validarFormatoPassword(contrasenia)
+		//validarValoresNulos(nombre, contrasenia)
+		validarExistenciaDeUsuario(nombre)
+		validarFormatoPassword(contrasenia)
 		crearUsuario(nombre, contrasenia)
+	}
+	
+	def validarValoresNulos(String nom, String pass) {
+		validarCampoNulo(nom)
+		validarCampoNulo(pass)
+	}
+	
+	def validarCampoNulo(String valor) {
+		if (valor == '' || valor==null){
+			throw new ErrorValorNulo(valor)
+		}
 	}
 	
 	def validarFormatoPassword(String contrasenia){

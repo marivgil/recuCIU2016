@@ -8,16 +8,16 @@
 
 	<div>
 	   	<label class="control-label">Usuario</label>
-	   	<input type="text" name="inputUsuario" id="inputUsuario" placeholder="Usuario" data-ng-model="controller.usuario" required="true">
+	   	<input type="text" name="inputUsuario" id="inputUsuario" placeholder="Usuario" data-ng-model="controller.usuario" required>
+		<span ng-show="!inputUsuario.$pristine && inputUsuario.$error.required">El nombre de usuario es obligatorio</span>
+
 	</div>
 	  
 	<div>
 	  	<label class="control-label">Contraseña</label>
-	   	<input type="password" id="inputPassword" placeholder="Contraseña" data-ng-model="controller.pass" required="true">
-	</div>
+	   	<input type="password" id="inputPassword" name="inputPassword" placeholder="Contraseña" data-ng-model="controller.pass" required="true">
 
-	<div class="example-animate-container" style="padding-top:10px">
-		<div class="alert alert-danger animate-repeat" ng-repeat="error in controller.errors">{{error}}</div>
+	   	<span ng-show="!inputPassword.$pristine && inputPassword.$error.required">Debe ingresar la contraseña</span>
 	</div>
 
 	<button type="button" class="btn btn-success" ng-click="ingresar()" aria-hidden="true">Ingresar</button>
@@ -27,6 +27,10 @@
    	    	<a ui-sref="registracion">¿No tenes usuario registrado?</a>
    	    </small>
    	</div>
+
+	<div class="example-animate-container" style="padding-top:10px">
+		<div class="alert alert-danger animate-repeat" ng-repeat="error in controller.errors">{{error}}</div>
+	</div>
 
 </div>
 </section>

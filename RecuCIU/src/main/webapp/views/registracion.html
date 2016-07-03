@@ -1,4 +1,4 @@
-<section ng-controller="GastosController as controller">
+<section ng-controller="LoginController as controller">
 
 <div class="text-center">
     <header class="text-primary">
@@ -7,14 +7,18 @@
     </header>
     <br>
 
+	<div class="example-animate-container" style="padding-top:10px">
+		<div class="alert alert-danger animate-repeat" ng-repeat="error in controller.errors">{{error}}</div>
+	</div>
+
 	<div>
 	    <label class="control-label">Nombre de usuario</label>
-	    <input type="text" id="inputUsuario" data-ng-model="controller.usuario.nombre">
+	    <input type="text" id="inputUsuario" data-ng-model="controller.usuario">
 	</div>
 	  
 	<div>
 	    <label class="control-label">Contraseña</label>
-	    <input type="password" id="inputPassword" data-ng-model="controller.usuario.pass">
+	    <input type="password" id="inputPassword" data-ng-model="controller.pass">
 	</div>
 	
 	<button type="button" class="btn btn-success" ng-click="altaUsuario()" aria-hidden="true">Registrarme</button>

@@ -39,7 +39,7 @@ class ControlGastosController extends ResultFactory {
 	
 	@Put('/registracion/:nombreUsuario/:password')
 	def registracion(){
-		response.contentType = "application/json"
+		//response.contentType = "application/json"
 		val nomUsuario = String.valueOf(nombreUsuario)
 		val contrasenia = String.valueOf(password)
 		try{

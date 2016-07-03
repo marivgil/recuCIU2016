@@ -14,25 +14,25 @@ controlGastos.controller("LoginController", function ($state, $scope, gastosServ
 					$state.go("gastos");
         })
         .error(function(error) {
-            console.log(error);
+            //console.log(error);
             self.errors.push(error)
-            while (self.errors.length > 0)
+            while (self.errors.length > 1)
         		self.errors.pop();
         });
 
 	}
 
-    $scope.altaUsuario = function(usuario) {
+    $scope.altaUsuario = function(usuario, pass) {
 
-    	gastosService.registrarUsuario(usuario)
+    	gastosService.registrarUsuario(usuario, pass)
         .success(
         		function(){
 					$state.go("login");
         })
         .error(function(error) {
-            console.log(error);
+            //console.log(error);
             self.errors.push(error)
-            while (self.errors.length > 0)
+            while (self.errors.length > 1)
         		self.errors.pop();
         });
 
