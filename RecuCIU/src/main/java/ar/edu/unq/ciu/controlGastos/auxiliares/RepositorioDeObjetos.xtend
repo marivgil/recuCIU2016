@@ -7,6 +7,8 @@ import ar.edu.unq.ciu.controlGastos.excepciones.ContraseniaIncorrecta
 import ar.edu.unq.ciu.controlGastos.excepciones.ErrorEnLongitudContrasenia
 import ar.edu.unq.ciu.controlGastos.excepciones.ErrorContraseniaCaracterNumerico
 import ar.edu.unq.ciu.controlGastos.excepciones.ExisteElUsuario
+import ar.edu.unq.ciu.controlGastos.dominio.Gasto
+import ar.edu.unq.ciu.controlGastos.dominio.Detalle
 
 class RepositorioDeObjetos {
 	
@@ -96,5 +98,38 @@ class RepositorioDeObjetos {
 		usuario.nombre = nombre
 		usuario.pass = contrasenia
 		usuarios.add(usuario)
+	}
+	
+	def registrarGasto(String usuario, String descripcion, Integer monto) {
+		val user = buscarUsuario(usuario)
+		if (!(existeGastoParaUsuario(user, descripcion))){
+			user.agregarGasto(nuevoGasto(descripcion,monto), monto)
+		}else{
+			val gasto = buscarGasto(user, descripcion)
+			gasto.agregarDetalle(nuevoDetalle(monto))
+		}
+		user
+	}
+	
+	def existeGastoParaUsuario(Usuario usuario, String concepto) {
+		usuario.gastos.exists[gasto| gasto.concepto == concepto]
+	}
+	
+	def buscarGasto(Usuario user, String desc){
+    	user.gastos.findFirst[gasto| gasto.concepto == desc]
+    }
+	
+	def nuevoGasto(String descripcion, Integer monto){
+		val gasto = new Gasto
+		gasto.concepto = descripcion
+		val detalle = nuevoDetalle(monto)
+		gasto.agregarDetalle(detalle)
+		gasto
+	}
+	
+	def nuevoDetalle(Integer monto){
+		val detalle = new Detalle
+		detalle.monto = monto
+		detalle
 	}
 }
