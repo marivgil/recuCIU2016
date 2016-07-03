@@ -1,26 +1,6 @@
 
-#loading {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width:100%;
-    cursor: not-allowed;
-    filter: alpha(opacity=60);
-    opacity: 0.6;
- }
-
-.mi-row{
-  color: darkgrey;
-  top: 10px;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 20px;
-}
-
-.top-center{
-    width: 30%;
-    position: fixed;
-    left: 50%;
-    transform:translateX(-50%);
-    top: 50px;
+.columnas {
+  -moz-column-count: 3; /* Firefox */
+  resize: horizontal;
+  -moz-column-gap: 20px; /* Firefox */
 }

@@ -1,1 +1,12 @@
-<p>indice inflacion</p>
+<div class="text-left panel panel-default">
+	<header class="text-primary">
+   		<h4>Indice Inflacionario</h4>
+   	</header>
+	<input type="date" name="inputAnio" id="inputAnio" data-ng-model="gastosController.anio" placeholder="año">
+   	<br>
+	<input type="text" name="inputDescripcion" id="inputDescripcion" data-ng-model="gastosController.descripcion" placeholder="descripcion">
+   	<br>
+   	<br>
+	<button type="button" class="btn btn-success" ng-click="calcularIndice()" aria-hidden="true">Calcular</button>
+   	<br>
+</div>
