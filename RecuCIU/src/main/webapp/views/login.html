@@ -2,27 +2,23 @@
 
 <div class="text-center">
     <header class="text-primary">
-    	<h4>Control de Gastos</h4>
+    	<h2>Control de Gastos</h2>
     </header>
     <br>
 
-	<form class="form-horizontal" role="form" name="formulario">
-
-		<div class="form-group">
-	    		<label for="inputUsuario" class="control-label">Usuario</label>
-	      		<input type="text" class="form-control" name="inputUsuario" id="inputUsuario" placeholder="Usuario" class="form-group has-error" data-ng-model="controller.usuario" required="true">
-	  	</div>
+	<div>
+	   	<label class="control-label">Usuario</label>
+	   	<input type="text" name="inputUsuario" id="inputUsuario" placeholder="Usuario" data-ng-model="controller.usuario" required="true">
+	</div>
 	  
-	  	<div class="form-group">
-	      		<label for="inputPassword" class="control-label">Contraseña</label>
-	      		<input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" class="form-group has-error" data-ng-model="controller.pass" required="true">
-	  	</div>
+	<div>
+	  	<label class="control-label">Contraseña</label>
+	   	<input type="password" id="inputPassword" placeholder="Contraseña" data-ng-model="controller.pass" required="true">
+	</div>
 
-	  	<div class="example-animate-container" style="padding-top:10px">
-	  		<div class="alert alert-danger animate-repeat" ng-repeat="error in controller.errors">{{error}}</div>
-	  	</div>
-
-	</form>
+	<div class="example-animate-container" style="padding-top:10px">
+		<div class="alert alert-danger animate-repeat" ng-repeat="error in controller.errors">{{error}}</div>
+	</div>
 
 	<button type="button" class="btn btn-success" ng-click="ingresar()" aria-hidden="true">Ingresar</button>
 

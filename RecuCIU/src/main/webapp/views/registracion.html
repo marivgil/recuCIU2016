@@ -3,23 +3,20 @@
 <div class="text-center">
     <header class="text-primary">
     	<h4>Control de Gastos</h4>
-    	<h4>Registracion</h4>
+    	<h2>Registracion</h2>
     </header>
     <br>
 
-	<form class="form-horizontal" role="form">
-
-		<div class="form-group">
-	    		<label for="inputUsuario" class="control-label">Nombre de usuario</label>
-	      		<input type="text" class="form-control" id="inputUsuario" class="form-group has-error" data-ng-model="controller.usuario.nombre">
-	  	</div>
+	<div>
+	    <label class="control-label">Nombre de usuario</label>
+	    <input type="text" id="inputUsuario" data-ng-model="controller.usuario.nombre">
+	</div>
 	  
-	  	<div class="form-group">
-	      		<label for="inputPassword" class="control-label">Contraseña</label>
-	      		<input type="password" class="form-control" id="inputPassword" class="form-group has-error" data-ng-model="controller.usuario.pass">
-	  	</div>
-	</form>
-
+	<div>
+	    <label class="control-label">Contraseña</label>
+	    <input type="password" id="inputPassword" data-ng-model="controller.usuario.pass">
+	</div>
+	
 	<button type="button" class="btn btn-success" ng-click="altaUsuario()" aria-hidden="true">Registrarme</button>
 </div>
 </section>
