@@ -1,1 +1,30 @@
-<p>listado de gastos</p>
+<div class="text-left panel panel-default">
+	<div class="text-horizontal">
+   	<label>Buscar Gastos</label>
+		<input type="text" name="inputDescBuscada" id="inputDescBuscada" data-ng-model="controller.descrBuscada">
+	</div>
+   	<br>
+	<button type="button" class="btn" ng-click="buscarDescripcion()" aria-hidden="true">Filtrar</button>
+	<label class="control-label">Filtre por descripcion para saber el total parcial</label>
+   	<br>
+</div>
+
+
+<div class="text-center panel">
+  <table ng-controller="gastosController.gastos as GastosController" border="1">
+  <thead>
+    <tr>
+      <td>Mes</td>
+      <td>Descripcion</td>
+      <td>Monto</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="gasto in gastos">
+        <td>{{gasto.mes}}</td>
+        <td>{{gasto.descripcion}}</td>
+        <td>{{gasto.monto}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

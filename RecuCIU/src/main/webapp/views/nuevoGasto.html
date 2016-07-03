@@ -1,17 +1,14 @@
-<section ng-controller="LoginController as controller">
-	<div class="text-center">
-		<header class="text-primary">
-    		<h3>Nuevo Gasto</h4>
-    	</header>
-    <br>
-
-    <label class="control-label">Descripcion</label>
+<div class="text-left panel panel-default">
+	<header class="text-primary">
+   		<h4>Nuevo Gasto</h4>
+   	</header>
+   	<label class="control-label">Descripcion</label>
 	<input type="text" name="inputDescripcion" id="inputDescripcion" data-ng-model="controller.descripcion" size="30" width="40">
-
+   	<br>
     <label class="control-label">Monto</label>
 	<input type="text" name="inputMonto" id="inputMonto" data-ng-model="controller.monto" size="30" width="40">
-
+   	<br>
+   	<br>
 	<button type="button" class="btn btn-success" ng-click="nuevoGasto()" aria-hidden="true">Agregar</button>
-	
-	</div>
-</section>
+   	<br>
+</div>
