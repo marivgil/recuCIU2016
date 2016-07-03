@@ -8,13 +8,16 @@ class Gasto {
 	String concepto
 	ArrayList<Detalle> detallesMensuales
 	Integer indiceInflacion
+	Integer totalParcial
 	
 	new(){
 		detallesMensuales = new ArrayList<Detalle>
 		indiceInflacion = 0
+		totalParcial = 0
 	}
 	
 	def agregarDetalle(Detalle d){
 		detallesMensuales.add(d)
+		totalParcial=totalParcial+d.monto
 	}
 }

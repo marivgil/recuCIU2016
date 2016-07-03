@@ -10,19 +10,18 @@ import org.uqbar.commons.model.UserException
 import org.uqbar.xtrest.api.Result
 import org.uqbar.xtrest.api.annotation.Put
 import ar.edu.unq.ciu.controlGastos.minificados.Minificador
+import org.uqbar.xtrest.api.annotation.Get
 
 @Controller
 class ControlGastosController extends ResultFactory {
 	
 	@Extension
-  	private JSONUtils jSONUtils = new JSONUtils();
-  
-  	private RepositorioDeObjetos repositorio;
-  
-  	private Minificador minificador;
+  	private JSONUtils jSONUtils = new JSONUtils()
+  	private RepositorioDeObjetos repositorio
+  	private Minificador minificador
   
   new() {
-    repositorio = new RepositorioDeObjetos();
+    repositorio = new RepositorioDeObjetos()
     minificador = new Minificador
   }
   
@@ -32,7 +31,7 @@ class ControlGastosController extends ResultFactory {
 		val pass = String.valueOf(password)
 		try {
 			repositorio.login(user, pass)
-			ok();
+			ok()
 		} catch (UserException e) {
 			notFound(e.message)
 		}
@@ -47,7 +46,7 @@ class ControlGastosController extends ResultFactory {
 			repositorio.registrarUsuario(nomUsuario, contrasenia)
 			ok()
 		} catch (UserException e) {
-			notFound(e.message);
+			notFound(e.message)
 		}
 
 	}	
@@ -62,9 +61,32 @@ class ControlGastosController extends ResultFactory {
 		try{
 			ok(minificador.minificaGasto(repositorio.registrarGasto(nomUsuario, desc, valor)).toJson)
 		} catch (UserException e) {
-			notFound(e.message);
+			notFound(e.message)
 		}
 
+	}
+
+	@Get('/buscarDescripcion/:nombreUsuario/:descripcion')
+  	def Result buscarDescripcion() {
+  		val desc = String.valueOf(descripcion)
+  		val nomUser = String.valueOf(nombreUsuario)
+		try {
+			ok(repositorio.buscarDescripcion(nomUser, desc).toJson)
+		} catch (UserException e) {
+			notFound(e.message)
+		}
+	}
+
+	@Get('/indiceInflacion/:nombreUsuario/:anio/:descripcion')
+  	def Result buscarIndiceInflacion() {
+  		val desc = String.valueOf(descripcion)
+  		val nomUser = String.valueOf(nombreUsuario)
+  		val fecha = Long.valueOf(anio)
+		try {
+			ok(repositorio.buscarIndiceInflacion(nomUser, desc, fecha).toJson)
+		} catch (UserException e) {
+			notFound(e.message)
+		}
 	}
   
   def static void main(String[] args) {

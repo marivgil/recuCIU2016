@@ -132,4 +132,15 @@ class RepositorioDeObjetos {
 		detalle.monto = monto
 		detalle
 	}
+	
+	def buscarDescripcion(String nomUsuario, String descripcion) {
+		val user = buscarUsuario(nomUsuario)
+		val gasto = buscarGasto(user, descripcion)
+		gasto
+	}
+	
+	def buscarIndiceInflacion(String nomUser, String desc, Long fecha){
+		
+	}
+	
 }
