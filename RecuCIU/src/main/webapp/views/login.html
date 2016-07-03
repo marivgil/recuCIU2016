@@ -6,30 +6,29 @@
     </header>
     <br>
 
-	<form class="form-horizontal" role="form">
+	<form class="form-horizontal" role="form" name="formulario">
 
 		<div class="form-group">
 	    		<label for="inputUsuario" class="control-label">Usuario</label>
-	      		<input type="text" class="form-control" id="inputUsuario" placeholder="Usuario" class="form-group has-error" ng-model="controller.usuario">
+	      		<input type="text" class="form-control" name="inputUsuario" id="inputUsuario" placeholder="Usuario" class="form-group has-error" data-ng-model="controller.usuario" required>
 	  	</div>
 	  
 	  	<div class="form-group">
 	      		<label for="inputPassword" class="control-label">Contraseña</label>
-	      		<input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" class="form-group has-error" ng-model="controller.pass">
+	      		<input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" class="form-group has-error" data-ng-model="controller.pass" required>
 	  	</div>
+
 	</form>
 
 	<button type="button" class="btn btn-success" ng-click="ingresar()" aria-hidden="true">Ingresar</button>
 
    	<div class="registrar_position">
    	    <small> 
-   	    	<a href="views/registracion.html">
-   	    		¿No tenes usuario registrado?
-   	    	</a>
+   	    	<a ui-sref="registracion">¿No tenes usuario registrado?</a>
    	    </small>
    	</div>
 
   <div class="alert alert-danger animate-repeat" ng-repeat="error in controller.errors">{{error}}</div>
-   	
+
 </div>
 </section>

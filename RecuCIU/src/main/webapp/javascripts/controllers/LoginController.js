@@ -20,8 +20,23 @@ controlGastos.controller("LoginController", function ($state, $scope, gastosServ
         		self.errors.pop();
         });
 
-}
+	}
 
+    $scope.altaUsuario = function(usuario) {
+
+    	gastosService.registrarUsuario(usuario)
+        .success(
+        		function(){
+					$state.go("login");
+        })
+        .error(function(error) {
+            console.log(error);
+            self.errors.push(error)
+            while (self.errors.length > 0)
+        		self.errors.pop();
+        });
+
+}
 
 });
 

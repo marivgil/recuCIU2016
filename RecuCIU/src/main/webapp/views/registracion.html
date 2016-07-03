@@ -11,15 +11,15 @@
 
 		<div class="form-group">
 	    		<label for="inputUsuario" class="control-label">Nombre de usuario</label>
-	      		<input type="text" class="form-control" id="inputUsuario" class="form-group has-error">
+	      		<input type="text" class="form-control" id="inputUsuario" class="form-group has-error" data-ng-model="controller.usuario.nombre">
 	  	</div>
 	  
 	  	<div class="form-group">
 	      		<label for="inputPassword" class="control-label">Contraseña</label>
-	      		<input type="password" class="form-control" id="inputPassword" class="form-group has-error">
+	      		<input type="password" class="form-control" id="inputPassword" class="form-group has-error" data-ng-model="controller.usuario.pass">
 	  	</div>
 	</form>
 
-	<button type="button" class="btn btn-success" ng-click="registrarme()" aria-hidden="true">Registrarme</button>
+	<button type="button" class="btn btn-success" ng-click="altaUsuario()" aria-hidden="true">Registrarme</button>
 </div>
 </section>

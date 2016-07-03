@@ -1,4 +1,4 @@
-controlGastos.service('gastosService', function ($http) {
+controlGastos.service('gastosService', ['$http', function ($http) {
 
 	this.validarUsuario = function(usuario, pass){
 		return $http.post('http://localhost:9000/login/' + usuario + '/' + pass);
@@ -8,4 +8,4 @@ controlGastos.service('gastosService', function ($http) {
 		return $http.put('http://localhost:9000/registracion/' + usuario + '/' + pass);
 	}
 
-});
+}]);

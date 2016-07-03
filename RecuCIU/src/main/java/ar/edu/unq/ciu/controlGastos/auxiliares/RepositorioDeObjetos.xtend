@@ -51,8 +51,8 @@ class RepositorioDeObjetos {
 	}
 	
 	def registrarUsuario(String nombre, String contrasenia){
-		validarExistenciaDeUsuario(nombre)
-		validarFormatoPassword(contrasenia)
+		//validarExistenciaDeUsuario(nombre)
+		//validarFormatoPassword(contrasenia)
 		crearUsuario(nombre, contrasenia)
 	}
 	
