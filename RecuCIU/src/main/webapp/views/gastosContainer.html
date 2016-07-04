@@ -1,4 +1,14 @@
 <section ng-controller="GastosController as gastosController">
+	
+	<div class="panel panel-default">
+		<label class="control-label text-left" >
+			Hola {{gastosController.usuario}} estos son tus gastos...
+		</label>
+		<label class="control-label text-rigth" >
+			Llevas gastados ${{gastosController.estadoActualizado.totalGastado}} en total
+		</label>
+	</div>
+	
 	<div class="columnas" >
 	    <ng-include src="'../views/nuevoGasto.html'"></ng-include>
 	    <ng-include src="'../views/listadoGastos.html'"></ng-include>

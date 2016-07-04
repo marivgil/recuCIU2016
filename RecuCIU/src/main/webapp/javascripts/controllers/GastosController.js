@@ -2,6 +2,7 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
 
 	var self = this;
     self.errors = [];
+    self.usuario = gastosService.user;
 	
     $scope.ingresar = function() {
         $state.go("gastos");
@@ -9,7 +10,11 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
 
     $scope.nuevoGasto = function(descripcion, monto) {
         gastosService.registrarGasto(descripcion, monto)
-        .success()
+        .success(
+            function(response){
+                self.estadoActualizado = response.data
+                console.log(self.estadoActualizado);
+            })
         .error(function(error) {
             self.errors.push(error)
             while (self.errors.length > 1)
@@ -22,6 +27,7 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
         .success(
             function(response){
                 self.gastos = response.data;
+                console.log(response.data);
         })
         .error(function(error) {
             self.errors.push(error)
