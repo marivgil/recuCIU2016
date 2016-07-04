@@ -12,23 +12,23 @@
    	<br>
    </div>
 
-   <div class="text-left panel panel-default" ng-show="mostrarDetalle">
+   <div class="text-left panel panel-default"> <!-- ng-show="mostrarDetalle"> -->
       <label class="control-label text-left">
          Inflacion en {{gastosController.anio}} segun {{gastosController.descripcion}}
       </label>
-
+      <br/>
       <label class="control-label text-left">
-         Indice {{gastosController.inflacion.indiceInflacion}} segun {{gastosController.descripcion}}
+         Indice: {{gastosController.inflacion.indiceInflacion}}
       </label>
-
+      <br/>
       <label class="control-label text-left">Explicacion</label>
-
+      <br/>
       <div class="table-responsive">
          <table class="table table-striped table-hover table-condensed example-animate-container">
             <tbody>
                <tr data-ng-repeat="detalle in gastosController.inflacion.detalles">
                   <td>{{detalle.mes}}</td>
-                  <td>{{detalle.descripcion}}</td>
+                  <td>{{detalle.aumentoParcial}}</td>
                </tr>
             </tbody>
          </table>
