@@ -1,11 +1,11 @@
 <section ng-controller="GastosController as gastosController">
 	
 	<div class="panel panel-default">
-		<label class="control-label text-left" >
+		<label class="control-label text-left">
 			Hola {{gastosController.usuario}} estos son tus gastos...
 		</label>
-		<label class="control-label text-rigth" >
-			Llevas gastados ${{gastosController.estadoActualizado.totalGastado}} en total
+		<label class="control-label text-rigth" ng-model="gastosController.totalGastado">
+			Llevas gastados $ {{gastosController.totalGastado}} en total
 		</label>
 	</div>
 	

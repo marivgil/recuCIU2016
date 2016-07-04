@@ -7,24 +7,23 @@
 	<button type="button" class="btn" ng-click="buscarDescripcion(gastosController.descrBuscada)" aria-hidden="true">Filtrar</button>
 	<label class="control-label">Filtre por descripcion para saber el total parcial</label>
    	<br>
-</div>
 
-
-<div class="table-responsive">
-  <table class="table table-striped table-hover table-condensed example-animate-container">
-  <thead>
-    <tr>
-      <td>Mes</td>
-      <td>Descripcion</td>
-      <td>Monto</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="gasto in gastosController.gastos">
-        <td>{{gasto.mes}}</td>
-        <td>{{gasto.descricion}}</td>
-        <td>{{gasto.monto}}</td>
-    </tr>
-  </tbody>
-</table>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-condensed example-animate-container">
+    <thead>
+      <tr>
+        <td>Mes</td>
+        <td>Descripcion</td>
+        <td>Monto</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="gasto in gastosController.gastos">
+          <td>{{gasto.mes}}</td>
+          <td>{{gasto.descripcion}}</td>
+          <td>{{gasto.monto}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 </div>
