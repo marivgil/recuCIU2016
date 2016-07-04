@@ -149,8 +149,8 @@ class RepositorioDeObjetos {
 		detalle.mes = fecha.month
 		detalle
 	}
-	
-	def buscarDescripcion(String nomUsuario, String descripcion) {
+
+	def buscarGastoPorDescripcion(String nomUsuario, String descripcion) {
 		val user = buscarUsuario(nomUsuario)
 		if(!existeGastoParaUsuario(user,descripcion)){
 			throw new NoExisteGastoParaUsuarioActual(user.nombre)
@@ -158,9 +158,20 @@ class RepositorioDeObjetos {
 		val gasto = buscarGasto(user, descripcion)
 		gasto
 	}
+
+	def buscarIndiceInflacion(String nomUser, String desc, Integer anio){
+		val gasto = buscarGastoPorDescripcion(nomUser, desc)
+		filtrarDetalle(gasto, anio)
+		gasto
+	}
 	
-	def buscarIndiceInflacion(String nomUser, String desc, Long fecha){
-		
+	def filtrarDetalle(Gasto gasto, Integer anio){
+		gasto.detallesMensuales.forEach[ detalle |
+			if(detalle.anio!=anio){
+				gasto.detallesMensuales.remove(detalle)
+			}
+		]
+		gasto
 	}
 	
 }

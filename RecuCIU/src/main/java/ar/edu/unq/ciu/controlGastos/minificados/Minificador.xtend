@@ -25,4 +25,11 @@ class Minificador {
 		listaMini
 	}
 	
+	def minicarIndiceInflacionario(Gasto gasto) {
+		val indice = new IndiceMinificado
+		indice.indiceInflacion = gasto.indiceInflacion
+		indice.detalles.addAll(gasto.detallesMensuales) 
+		
+	}
+	
 }

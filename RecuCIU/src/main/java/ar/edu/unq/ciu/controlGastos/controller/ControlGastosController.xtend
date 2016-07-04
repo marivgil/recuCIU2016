@@ -70,7 +70,7 @@ class ControlGastosController extends ResultFactory {
   		val desc = String.valueOf(descripcion)
   		val nomUser = String.valueOf(nombreUsuario)
 		try {
-			ok(minificador.minificarGastoLista(repositorio.buscarDescripcion(nomUser, desc)).toJson)
+			ok(minificador.minificarGastoLista(repositorio.buscarGastoPorDescripcion(nomUser, desc)).toJson)
 		} catch (UserException e) {
 			notFound(e.message)
 		}
@@ -80,9 +80,9 @@ class ControlGastosController extends ResultFactory {
   	def Result buscarIndiceInflacion() {
   		val desc = String.valueOf(descripcion)
   		val nomUser = String.valueOf(nombreUsuario)
-  		val fecha = Long.valueOf(anio)
+  		val fecha = Integer.valueOf(anio)
 		try {
-			ok(repositorio.buscarIndiceInflacion(nomUser, desc, fecha).toJson)
+			ok(minificador.minicarIndiceInflacionario(repositorio.buscarIndiceInflacion(nomUser, desc, fecha)).toJson)
 		} catch (UserException e) {
 			notFound(e.message)
 		}
