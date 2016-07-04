@@ -13,17 +13,17 @@ controlGastos.service('gastosService', ['$http', function ($http) {
 		return $http.put('http://localhost:9000/registracion/' + usuario + '/' + pass);
 	}
 
-	this.registrarGasto = function(usuario, descripcion, monto){
-		console.log(usuario);
+	this.registrarGasto = function(descripcion, monto){
+		console.log(this.user);
 		console.log(descripcion);
 		console.log(monto);
-		return $http.put('http://localhost:9000/nuevoGasto/' + usuario + '/' + descripcion + '/' + monto);
+		return $http.put('http://localhost:9000/nuevoGasto/' + this.user + '/' + descripcion + '/' + monto);
 	}
 
-	this.buscarDescripcion = function(usuario, descripcion){
-		console.log(usuario)
+	this.buscarDescripcion = function(descripcion){
+		console.log(this.user)
 		console.log(descripcion)
-		return $http.get('http://localhost:9000/buscarDescripcion/' + usuario + '/' + descripcion);
+		return $http.get('http://localhost:9000/buscarDescripcion/' + this.user + '/' + descripcion);
 	}
 
 }]);

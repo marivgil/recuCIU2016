@@ -8,10 +8,8 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
         $state.go("gastos");
     }
 
-    this.usuario = gastosService.user
-
     $scope.nuevoGasto = function(descripcion, monto) {
-        gastosService.registrarGasto(this.usuario, descripcion, monto)
+        gastosService.registrarGasto(descripcion, monto)
         .success(
             function(){
                 //$state.go("login");
@@ -24,7 +22,7 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
     }
 
     $scope.buscarDescripcion = function(descrBuscada) {
-        gastosService.buscarDescripcion(this.usuario, descrBuscada)
+        gastosService.buscarDescripcion(descrBuscada)
         .success(
             function(){
                 //$state.go("gastos");
