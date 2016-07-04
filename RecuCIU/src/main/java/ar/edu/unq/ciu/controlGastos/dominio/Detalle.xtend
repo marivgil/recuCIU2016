@@ -8,10 +8,14 @@ class Detalle {
 	int anio
 	Month mes
 	Integer monto
-	Integer aumento
+	Integer aumentoParcial
 	
 	new(){
 		monto = 0
-		aumento = 0
+		aumentoParcial = 0
+	}
+	
+	def calcularAumentoParcial(Integer valorAnterior){
+		aumentoParcial = ((monto-valorAnterior)/valorAnterior)*100
 	}
 }

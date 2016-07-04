@@ -8,16 +8,21 @@ class Gasto {
 	String concepto
 	ArrayList<Detalle> detallesMensuales
 	Integer indiceInflacion
-	Integer totalParcial
+	
 	
 	new(){
 		detallesMensuales = new ArrayList<Detalle>
 		indiceInflacion = 0
-		totalParcial = 0
 	}
 	
 	def agregarDetalle(Detalle d){
 		detallesMensuales.add(d)
-		totalParcial=totalParcial+d.monto
+		val aumentoParcial = d.calcularAumentoParcial(detallesMensuales.get(detallesMensuales.length-1).monto)
+		actualizarIndiceInflacionario(aumentoParcial)
 	}
+	
+	def actualizarIndiceInflacionario(Integer aumento){
+		indiceInflacion = indiceInflacion+aumento
+	}
+	
 }
