@@ -16,9 +16,12 @@ class Gasto {
 	}
 	
 	def agregarDetalle(Detalle d){
+		if(!detallesMensuales.empty){
+			val aumentoParcial = 
+				d.calcularAumentoParcial((detallesMensuales.get(detallesMensuales.length-1)).monto)
+			actualizarIndiceInflacionario(aumentoParcial)
+		}
 		detallesMensuales.add(d)
-		val aumentoParcial = d.calcularAumentoParcial(detallesMensuales.get(detallesMensuales.length-1).monto)
-		actualizarIndiceInflacionario(aumentoParcial)
 	}
 	
 	def actualizarIndiceInflacionario(Integer aumento){

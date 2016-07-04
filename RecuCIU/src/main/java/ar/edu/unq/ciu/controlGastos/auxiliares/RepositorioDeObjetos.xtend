@@ -117,7 +117,7 @@ class RepositorioDeObjetos {
 	def registrarGasto(String usuario, String descripcion, Integer monto) {
 		val user = buscarUsuario(usuario)
 		if (!(existeGastoParaUsuario(user, descripcion))){
-			user.agregarGasto(nuevoGasto(descripcion, monto))
+			user.agregarGasto(nuevoGasto(descripcion, monto),monto)
 		}else{
 			val gasto = buscarGasto(user, descripcion)
 			gasto.agregarDetalle(nuevoDetalle(monto))

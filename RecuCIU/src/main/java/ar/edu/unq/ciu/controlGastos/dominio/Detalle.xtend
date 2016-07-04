@@ -17,5 +17,6 @@ class Detalle {
 	
 	def calcularAumentoParcial(Integer valorAnterior){
 		aumentoParcial = ((monto-valorAnterior)/valorAnterior)*100
+		aumentoParcial
 	}
 }

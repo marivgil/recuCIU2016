@@ -38,7 +38,7 @@ class TestAumentoEInflacion {
     	gasto1.agregarDetalle(detalleLuz1)
     	gasto1.agregarDetalle(detalleLuz2)
     	
-    	usuario.agregarGasto(gasto1)
+    	usuario.agregarGasto(gasto1,detalleLuz1.monto+detalleLuz2.monto)
     	
     	gasto2 = new Gasto
     	gasto2.concepto = "gas"
@@ -56,7 +56,7 @@ class TestAumentoEInflacion {
     	detalleGas2.mes=LocalDate.now().month
     	gasto2.agregarDetalle(detalleGas2)
     	
-    	usuario.agregarGasto(gasto2)
+    	usuario.agregarGasto(gasto2,detalleGas2.monto)
     }
 
     @Test

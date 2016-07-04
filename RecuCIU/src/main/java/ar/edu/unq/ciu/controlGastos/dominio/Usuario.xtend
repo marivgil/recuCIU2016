@@ -16,20 +16,11 @@ class Usuario {
 		totalGastado = 0
 	}
 	
-	def agregarGasto(Gasto gasto) {
+	def agregarGasto(Gasto gasto, Integer monto) {
 		gastos.add(gasto)
-		val totalParcial = calcularMontoDelGasto(gasto)
-		actualizarTotalGastado(totalParcial)
+		actualizarTotalGastado(monto)
 	}
-	
-	def calcularMontoDelGasto(Gasto gasto){
-		var i=0
-		var montoParcial=0
-    	for(i=0; i < gasto.detallesMensuales.length(); i++) {
-    		montoParcial = montoParcial+gasto.detallesMensuales.get(i).monto
-        	}
-		montoParcial
-	}
+
 	def actualizarTotalGastado(Integer monto){
 		totalGastado = totalGastado+monto
 	}
