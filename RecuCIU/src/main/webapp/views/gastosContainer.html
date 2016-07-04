@@ -4,14 +4,16 @@
 		<label class="control-label text-left">
 			Hola {{gastosController.usuario}} estos son tus gastos...
 		</label>
-		<label class="control-label text-rigth" ng-model="gastosController.totalGastado">
+		<label class="control-label text-rigth">
 			Llevas gastados $ {{gastosController.totalGastado}} en total
 		</label>
 	</div>
 	
-	<div class="columnas" >
-	    <ng-include src="'../views/nuevoGasto.html'"></ng-include>
-	    <ng-include src="'../views/listadoGastos.html'"></ng-include>
-	    <ng-include src="'../views/indiceInflacion.html'"></ng-include>
-	</div>
+	<div class="bloque" >
+	    <ng-include src="'../views/nuevoGasto.html'"></ng-include></div>
+	<div class="bloque" >
+	    <ng-include src="'../views/listadoGastos.html'"></ng-include></div>
+	<div class="bloque" >
+	    <ng-include src="'../views/indiceInflacion.html'"></ng-include></div>
+	
 </section>

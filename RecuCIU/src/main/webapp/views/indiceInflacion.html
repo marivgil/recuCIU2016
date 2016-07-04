@@ -1,4 +1,4 @@
-<section ng-controller="GastosController as gastosController">
+<section>
    <div class="text-left panel panel-default">
 	  <header class="text-primary">
          <h4>Indice Inflacionario</h4>
@@ -12,7 +12,7 @@
    	<br>
    </div>
 
-   <div class="text-left panel panel-default"> <!-- ng-show="mostrarDetalle"> -->
+   <div class="text-left panel panel-default" ng-show="gastosController.mostrarDetalle">
       <label class="control-label text-left">
          Inflacion en {{gastosController.anio}} segun {{gastosController.descripcion}}
       </label>

@@ -4,3 +4,8 @@
   resize: horizontal;
   -moz-column-gap: 20px; /* Firefox */
 }
+.bloque {
+	display: inline-block;
+	width: 33%;
+	vertical-align: top;
+}

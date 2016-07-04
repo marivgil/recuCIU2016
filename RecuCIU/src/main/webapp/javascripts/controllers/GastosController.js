@@ -3,9 +3,8 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
 	var self = this;
     self.errors = [];
     self.usuario = gastosService.user;
-    self.totalGastado = 0;
 	
-    $scope.mostrarDetalle = false;
+    self.mostrarDetalle = false;
 
     $scope.ingresar = function() {
         $state.go("gastos");
@@ -44,7 +43,7 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
         .success(
             function(data){
                 self.inflacion = data;
-                !$scope.mostrarDetalle;
+                self.mostrarDetalle = true;
                 console.log(self.inflacion);
         })
         .error(function(error) {
