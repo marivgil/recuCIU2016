@@ -10,8 +10,8 @@ controlGastos.controller("LoginController", function ($state, $scope, gastosServ
 
     	gastosService.validarUsuario(usuario, pass)
         .success(
-        		function(){
-					$state.go("gastos");
+        	function(){
+				$state.go("gastos");
         })
         .error(function(error) {
             //console.log(error);
@@ -26,8 +26,8 @@ controlGastos.controller("LoginController", function ($state, $scope, gastosServ
 
     	gastosService.registrarUsuario(usuario, pass)
         .success(
-        		function(){
-					$state.go("login");
+        	function(){
+				$state.go("login");
         })
         .error(function(error) {
             //console.log(error);

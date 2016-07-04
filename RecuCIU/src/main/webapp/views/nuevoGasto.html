@@ -1,12 +1,12 @@
-<div class="text-left panel panel-default">
+<div class="text-left panel panel-default" ng-controller="GastosController as gastosController">
 	<header class="text-primary">
    		<h4>Nuevo Gasto</h4>
    	</header>
    	<label class="control-label">Descripcion</label>
-	<input type="text" name="inputDescripcion" id="inputDescripcion" data-ng-model="controller.descripcion" size="30" width="40">
+	<input type="text" name="inputDescripcion" id="inputDescripcion" data-ng-model="gastosController.descripcion">
    	<br>
     <label class="control-label">Monto</label>
-	<input type="text" name="inputMonto" id="inputMonto" data-ng-model="controller.monto" size="30" width="40">
+	<input type="number" name="inputMonto" id="inputMonto" data-ng-model="gastosController.monto">
    	<br>
    	<br>
 	<button type="button" class="btn btn-success" ng-click="nuevoGasto()" aria-hidden="true">Agregar</button>

@@ -1,15 +1,15 @@
 package ar.edu.unq.ciu.controlGastos.auxiliares
 
-import java.util.ArrayList
-import ar.edu.unq.ciu.controlGastos.dominio.Usuario
-import ar.edu.unq.ciu.controlGastos.excepciones.NoExisteElUsuario
-import ar.edu.unq.ciu.controlGastos.excepciones.ContraseniaIncorrecta
-import ar.edu.unq.ciu.controlGastos.excepciones.ErrorEnLongitudContrasenia
-import ar.edu.unq.ciu.controlGastos.excepciones.ErrorContraseniaCaracterNumerico
-import ar.edu.unq.ciu.controlGastos.excepciones.ExisteElUsuario
-import ar.edu.unq.ciu.controlGastos.dominio.Gasto
 import ar.edu.unq.ciu.controlGastos.dominio.Detalle
+import ar.edu.unq.ciu.controlGastos.dominio.Gasto
+import ar.edu.unq.ciu.controlGastos.dominio.Usuario
+import ar.edu.unq.ciu.controlGastos.excepciones.ContraseniaIncorrecta
+import ar.edu.unq.ciu.controlGastos.excepciones.ErrorContraseniaCaracterNumerico
+import ar.edu.unq.ciu.controlGastos.excepciones.ErrorEnLongitudContrasenia
 import ar.edu.unq.ciu.controlGastos.excepciones.ErrorValorNulo
+import ar.edu.unq.ciu.controlGastos.excepciones.ExisteElUsuario
+import ar.edu.unq.ciu.controlGastos.excepciones.NoExisteElUsuario
+import java.util.ArrayList
 
 class RepositorioDeObjetos {
 	
@@ -93,18 +93,31 @@ class RepositorioDeObjetos {
 			throw new ErrorContraseniaCaracterNumerico
 		}
 	}
-	
+/*
 	//REFACTOR
 	def tieneNumeros(String contrasenia){
+		var resultado = false
 		val	numeros='0123456789'
 		var i=0
    		for(i=0; i<contrasenia.length; i++){
    			if (numeros.indexOf(contrasenia.charAt(i),0) != -1){
-   				return true
+   				resultado = true
          	}
         }
-   		return false;
-	} 
+   		return resultado;
+	}
+ */
+ 	
+	def tieneNumeros(String pass) {
+		var i=0
+    	for(i=0; i < pass.length(); i++) {
+        	var caracter = pass.charAt(i);
+        	if(!Character.isLetterOrDigit(caracter)) {
+        		return false;
+        	}
+    }
+    return true;
+}
 	
 	def crearUsuario(String nombre, String contrasenia){
 		val usuario = new Usuario()
