@@ -18,8 +18,8 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
             })
         .error(function(error) {
             self.errors.push(error)
-            while (self.errors.length > 1)
-                self.errors.pop(    );
+            while (self.errors.length > 0)
+                self.errors.pop();
         });
     }
 
@@ -32,7 +32,7 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
         })
         .error(function(error) {
             self.errors.push(error)
-            while (self.errors.length > 1)
+            while (self.errors.length > 0)
                 self.errors.pop();
         });
     }

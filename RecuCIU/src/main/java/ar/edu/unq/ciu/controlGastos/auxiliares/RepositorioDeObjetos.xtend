@@ -11,6 +11,7 @@ import ar.edu.unq.ciu.controlGastos.excepciones.ExisteElUsuario
 import ar.edu.unq.ciu.controlGastos.excepciones.NoExisteElUsuario
 import java.util.ArrayList
 import java.time.LocalDate
+import ar.edu.unq.ciu.controlGastos.excepciones.NoExisteGastoParaUsuarioActual
 
 class RepositorioDeObjetos {
 	
@@ -151,6 +152,9 @@ class RepositorioDeObjetos {
 	
 	def buscarDescripcion(String nomUsuario, String descripcion) {
 		val user = buscarUsuario(nomUsuario)
+		if(!existeGastoParaUsuario(user,descripcion)){
+			throw new NoExisteGastoParaUsuarioActual(user.nombre)
+		}
 		val gasto = buscarGasto(user, descripcion)
 		gasto
 	}

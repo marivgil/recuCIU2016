@@ -12,7 +12,7 @@ controlGastos.controller("LoginController", function ($state, $scope, gastosServ
         })
         .error(function(error) {
             self.errors.push(error)
-            while (self.errors.length > 1)
+            while (self.errors.length > 0)
         		self.errors.pop();
         });
 
@@ -27,7 +27,7 @@ controlGastos.controller("LoginController", function ($state, $scope, gastosServ
         })
         .error(function(error) {
             self.errors.push(error)
-            while (self.errors.length > 1)
+            while (self.errors.length > 0)
         		self.errors.pop();
         });
     }
