@@ -9,6 +9,6 @@
 	<input type="number" name="inputMonto" id="inputMonto" data-ng-model="gastosController.monto">
    	<br>
    	<br>
-	<button type="button" class="btn btn-success" ng-click="nuevoGasto()" aria-hidden="true">Agregar</button>
+	<button type="button" class="btn btn-success" data-ng-click="nuevoGasto(gastosController.descripcion, gastosController.monto)" aria-hidden="true">Agregar</button>
    	<br>
 </div>

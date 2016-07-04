@@ -23,8 +23,8 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
         });
     }
 
-    $scope.buscarDescripcion = function(descripcion) {
-        gastosService.buscarDescripcion(this.usuario, descripcion)
+    $scope.buscarDescripcion = function(descrBuscada) {
+        gastosService.buscarDescripcion(this.usuario, descrBuscada)
         .success(
             function(){
                 //$state.go("gastos");

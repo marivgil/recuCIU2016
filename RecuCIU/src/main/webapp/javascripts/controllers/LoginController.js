@@ -1,8 +1,5 @@
 controlGastos.controller("LoginController", function ($state, $scope, gastosService) {
 
-// $scope.usuario
-// $scope.pass
-
   var self = this;
   self.errors = [];
 
@@ -14,7 +11,6 @@ controlGastos.controller("LoginController", function ($state, $scope, gastosServ
 				$state.go("gastos");
         })
         .error(function(error) {
-            //console.log(error);
             self.errors.push(error)
             while (self.errors.length > 1)
         		self.errors.pop();
@@ -22,21 +18,19 @@ controlGastos.controller("LoginController", function ($state, $scope, gastosServ
 
 	}
 
-    $scope.altaUsuario = function(usuario, pass) {
+    $scope.altaUsuario = function(usuarioAlta, passAlta) {
 
-    	gastosService.registrarUsuario(usuario, pass)
+    	gastosService.registrarUsuario(usuarioAlta, passAlta)
         .success(
         	function(){
 				$state.go("login");
         })
         .error(function(error) {
-            //console.log(error);
             self.errors.push(error)
             while (self.errors.length > 1)
         		self.errors.pop();
         });
-
-}
+    }
 
 });
 

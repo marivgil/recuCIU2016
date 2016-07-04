@@ -20,7 +20,7 @@
 	   	<span ng-show="!inputPassword.$pristine && inputPassword.$error.required">Debe ingresar la contraseña</span>
 	</div>
 
-	<button type="button" class="btn btn-success" ng-click="ingresar()" aria-hidden="true">Ingresar</button>
+	<button type="button" class="btn btn-success" ng-click="ingresar(controller.usuario, controller.pass)" aria-hidden="true">Ingresar</button>
 
    	<div class="registrar_position">
    	    <small> 

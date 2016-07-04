@@ -4,14 +4,14 @@
 		<input type="text" name="inputDescBuscada" id="inputDescBuscada" data-ng-model="gastosController.descrBuscada">
 	</div>
    	<br>
-	<button type="button" class="btn" ng-click="buscarDescripcion()" aria-hidden="true">Filtrar</button>
+	<button type="button" class="btn" ng-click="buscarDescripcion(gastosController.descrBuscada)" aria-hidden="true">Filtrar</button>
 	<label class="control-label">Filtre por descripcion para saber el total parcial</label>
    	<br>
 </div>
 
 
 <div class="text-center panel">
-  <table border="1">
+  <table border="1" class="" ="table-striped table-hover table-condensed example-animate-container">
   <thead>
     <tr>
       <td>Mes</td>

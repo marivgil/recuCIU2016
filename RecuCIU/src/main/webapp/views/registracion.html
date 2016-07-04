@@ -13,14 +13,14 @@
 
 	<div>
 	    <label class="control-label">Nombre de usuario</label>
-	    <input type="text" id="inputUsuario" data-ng-model="controller.usuario">
+	    <input type="text" id="usuarioAlta" data-ng-model="controller.usuarioAlta">
 	</div>
 	  
 	<div>
 	    <label class="control-label">Contraseña</label>
-	    <input type="password" id="inputPassword" data-ng-model="controller.pass">
+	    <input type="password" id="inputPassword" data-ng-model="controller.passAlta">
 	</div>
 	
-	<button type="button" class="btn btn-success" ng-click="altaUsuario()" aria-hidden="true">Registrarme</button>
+	<button type="button" class="btn btn-success" ng-click="altaUsuario(controller.usuarioAlta, controller.passAlta)" aria-hidden="true">Registrarme</button>
 </div>
 </section>
