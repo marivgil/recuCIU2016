@@ -10,6 +10,7 @@ import ar.edu.unq.ciu.controlGastos.excepciones.ErrorValorNulo
 import ar.edu.unq.ciu.controlGastos.excepciones.ExisteElUsuario
 import ar.edu.unq.ciu.controlGastos.excepciones.NoExisteElUsuario
 import java.util.ArrayList
+import java.time.LocalDate
 
 class RepositorioDeObjetos {
 	
@@ -54,7 +55,7 @@ class RepositorioDeObjetos {
 	}
 	
 	def registrarUsuario(String nombre, String contrasenia){
-		//validarValoresNulos(nombre, contrasenia)
+		validarValoresNulos(nombre, contrasenia)
 		validarExistenciaDeUsuario(nombre)
 		validarFormatoPassword(contrasenia)
 		crearUsuario(nombre, contrasenia)
@@ -93,21 +94,7 @@ class RepositorioDeObjetos {
 			throw new ErrorContraseniaCaracterNumerico
 		}
 	}
-/*
-	//REFACTOR
-	def tieneNumeros(String contrasenia){
-		var resultado = false
-		val	numeros='0123456789'
-		var i=0
-   		for(i=0; i<contrasenia.length; i++){
-   			if (numeros.indexOf(contrasenia.charAt(i),0) != -1){
-   				resultado = true
-         	}
-        }
-   		return resultado;
-	}
- */
- 	
+
 	def tieneNumeros(String pass) {
 		var i=0
     	for(i=0; i < pass.length(); i++) {
@@ -154,8 +141,11 @@ class RepositorioDeObjetos {
 	}
 	
 	def nuevoDetalle(Integer monto){
+		val fecha = LocalDate.now()
 		val detalle = new Detalle
 		detalle.monto = monto
+		detalle.anio = fecha.year
+		detalle.mes = fecha.month
 		detalle
 	}
 	

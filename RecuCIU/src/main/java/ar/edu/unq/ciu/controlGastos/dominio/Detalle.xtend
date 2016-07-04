@@ -1,15 +1,16 @@
 package ar.edu.unq.ciu.controlGastos.dominio
 
 import org.eclipse.xtend.lib.annotations.Accessors
+import java.time.Month
 
 @Accessors
 class Detalle {
-	Long aniofecha
+	int anio
+	Month mes
 	Integer monto
 	Integer aumento
 	
 	new(){
-		aniofecha = new Long(0)
 		monto = 0
 		aumento = 0
 	}

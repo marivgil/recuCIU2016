@@ -53,7 +53,6 @@ class ControlGastosController extends ResultFactory {
 
 	@Put('/nuevoGasto/:nombreUsuario/:descripcion/:monto')
 	def nuevoGasto(){
-		//response.contentType = "application/json"
 		val nomUsuario = String.valueOf(nombreUsuario)
 		val desc = String.valueOf(descripcion)
 		val valor = Integer.valueOf(monto)
@@ -71,7 +70,7 @@ class ControlGastosController extends ResultFactory {
   		val desc = String.valueOf(descripcion)
   		val nomUser = String.valueOf(nombreUsuario)
 		try {
-			ok(repositorio.buscarDescripcion(nomUser, desc).toJson)
+			ok(minificador.minificarGastoLista(repositorio.buscarDescripcion(nomUser, desc)).toJson)
 		} catch (UserException e) {
 			notFound(e.message)
 		}

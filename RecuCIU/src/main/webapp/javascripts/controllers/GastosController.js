@@ -1,7 +1,6 @@
 controlGastos.controller('GastosController', function ($scope, gastosService,$state) {
 
 	var self = this;
-	this.gastos = []
     self.errors = [];
 	
     $scope.ingresar = function() {
@@ -10,10 +9,7 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
 
     $scope.nuevoGasto = function(descripcion, monto) {
         gastosService.registrarGasto(descripcion, monto)
-        .success(
-            function(){
-                //$state.go("login");
-        })
+        .success()
         .error(function(error) {
             self.errors.push(error)
             while (self.errors.length > 1)
@@ -24,11 +20,10 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
     $scope.buscarDescripcion = function(descrBuscada) {
         gastosService.buscarDescripcion(descrBuscada)
         .success(
-            function(){
-                //$state.go("gastos");
+            function(response){
+                self.gastos = response.data;
         })
         .error(function(error) {
-            //console.log(error);
             self.errors.push(error)
             while (self.errors.length > 1)
                 self.errors.pop();
