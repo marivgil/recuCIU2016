@@ -1,7 +1,7 @@
-<div class="text-left panel panel-default">
+<div class="text-left panel panel-default" ng-controller="GastosController as gastosController">
 	<div class="text-horizontal">
    	<label>Buscar Gastos</label>
-		<input type="text" name="inputDescBuscada" id="inputDescBuscada" data-ng-model="controller.descrBuscada">
+		<input type="text" name="inputDescBuscada" id="inputDescBuscada" data-ng-model="gastosController.descrBuscada">
 	</div>
    	<br>
 	<button type="button" class="btn" ng-click="buscarDescripcion()" aria-hidden="true">Filtrar</button>
@@ -11,7 +11,7 @@
 
 
 <div class="text-center panel">
-  <table ng-controller="gastosController.gastos as GastosController" border="1">
+  <table border="1">
   <thead>
     <tr>
       <td>Mes</td>

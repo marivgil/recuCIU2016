@@ -21,20 +21,22 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
             while (self.errors.length > 1)
                 self.errors.pop();
         });
-    }   
-/*
-    self.gastos = [
-       {
-            mes: "Alfreds Futterkiste",
-            descripcion : "Germany",
-            monto : "Germany"
-        }, 
+    }
 
-        {
-            mes: "Alfreds Futterkiste",
-            descripcion : "Germany",
-            monto : "Germany"
-        }
-    ]
-*/
+    $scope.buscarDescripcion = function(descripcion) {
+        gastosService.buscarDescripcion(this.usuario, descripcion)
+        .success(
+            function(){
+                //$state.go("gastos");
+        })
+        .error(function(error) {
+            //console.log(error);
+            self.errors.push(error)
+            while (self.errors.length > 1)
+                self.errors.pop();
+        });
+
+
+    }
+
 });

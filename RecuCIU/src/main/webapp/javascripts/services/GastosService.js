@@ -15,4 +15,8 @@ controlGastos.service('gastosService', ['$http', function ($http) {
 		return $http.put('http://localhost:9000/nuevoGasto/' + usuario + '/' + descripcion + '/' + monto);
 	}
 
+	this.buscarDescripcion = function(usuario, descripcion){
+		return $http.get('http://localhost:9000/buscarDescripcion/' + usuario + '/' + descripcion);
+	}
+
 }]);

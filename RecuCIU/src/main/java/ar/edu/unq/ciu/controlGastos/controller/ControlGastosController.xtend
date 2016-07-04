@@ -53,7 +53,7 @@ class ControlGastosController extends ResultFactory {
 
 	@Put('/nuevoGasto/:nombreUsuario/:descripcion/:monto')
 	def nuevoGasto(){
-		response.contentType = "application/json"
+		//response.contentType = "application/json"
 		val nomUsuario = String.valueOf(nombreUsuario)
 		val desc = String.valueOf(descripcion)
 		val valor = Integer.valueOf(monto)
