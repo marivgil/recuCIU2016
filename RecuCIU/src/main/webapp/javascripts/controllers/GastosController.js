@@ -5,6 +5,8 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
     self.usuario = gastosService.user;
     self.totalGastado = 0;
 	
+    $scope.mostrarDetalle = false;
+
     $scope.ingresar = function() {
         $state.go("gastos");
     }
@@ -32,7 +34,22 @@ controlGastos.controller('GastosController', function ($scope, gastosService,$st
         })
         .error(function(error) {
             self.errors.push(error)
-            while (self.errors.length > 0)
+            while (self.errors.length > 1)
+                self.errors.pop();
+        });
+    }
+
+    $scope.calcularIndiceInflacion = function(anio, descripcion) {
+        gastosService.buscarIndiceInflacion(anio, descripcion)
+        .success(
+            function(data){
+                self.inflacion = data;
+                !$scope.mostrarDetalle;
+                console.log(self.inflacion);
+        })
+        .error(function(error) {
+            self.errors.push(error)
+            while (self.errors.length > 1)
                 self.errors.pop();
         });
     }

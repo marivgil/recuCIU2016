@@ -1,12 +1,37 @@
-<div class="text-left panel panel-default">
-	<header class="text-primary">
-   		<h4>Indice Inflacionario</h4>
-   	</header>
-	<input type="date" name="inputAnio" id="inputAnio" data-ng-model="gastosController.anio" placeholder="año">
+<section ng-controller="GastosController as gastosController">
+   <div class="text-left panel panel-default">
+	  <header class="text-primary">
+         <h4>Indice Inflacionario</h4>
+      </header>
+	  <input type="number" name="inputAnio" id="inputAnio" data-ng-model="gastosController.anio" placeholder="año">
    	<br>
-	<input type="text" name="inputDescripcion" id="inputDescripcion" data-ng-model="gastosController.descripcion" placeholder="descripcion">
+	  <input type="text" name="inputDescripcion" id="inputDescripcion" data-ng-model="gastosController.descripcion" placeholder="descripcion">
    	<br>
    	<br>
-	<button type="button" class="btn btn-success" ng-click="calcularIndice()" aria-hidden="true">Calcular</button>
+	  <button type="button" class="btn btn-success" ng-click="calcularIndiceInflacion(gastosController.anio, gastosController.descripcion)" aria-hidden="true">Calcular</button>
    	<br>
-</div>
+   </div>
+
+   <div class="text-left panel panel-default" ng-show="mostrarDetalle">
+      <label class="control-label text-left">
+         Inflacion en {{gastosController.anio}} segun {{gastosController.descripcion}}
+      </label>
+
+      <label class="control-label text-left">
+         Indice {{gastosController.inflacion.indiceInflacion}} segun {{gastosController.descripcion}}
+      </label>
+
+      <label class="control-label text-left">Explicacion</label>
+
+      <div class="table-responsive">
+         <table class="table table-striped table-hover table-condensed example-animate-container">
+            <tbody>
+               <tr data-ng-repeat="detalle in gastosController.inflacion.detalles">
+                  <td>{{detalle.mes}}</td>
+                  <td>{{detalle.descripcion}}</td>
+               </tr>
+            </tbody>
+         </table>
+     </div>
+   </div>
+</section>

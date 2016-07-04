@@ -26,4 +26,11 @@ controlGastos.service('gastosService', ['$http', function ($http) {
 		return $http.get('http://localhost:9000/buscarDescripcion/' + this.user + '/' + descripcion);
 	}
 
+	this.buscarIndiceInflacion = function(anio, descripcion){
+		console.log(this.user)
+		console.log(anio)
+		console.log(descripcion)
+		return $http.get('http://localhost:9000/indiceInflacion/' + this.user + '/' + anio + '/' + descripcion);
+	}
+
 }]);

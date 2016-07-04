@@ -10,7 +10,6 @@ class IndiceMinificado {
 	ArrayList<Detalle> detalles
 	
 	new(){
-		detalles = new ArrayList<Detalle>()
-		indiceInflacion = 0
+		detalles = new ArrayList<Detalle>
 	}
 }

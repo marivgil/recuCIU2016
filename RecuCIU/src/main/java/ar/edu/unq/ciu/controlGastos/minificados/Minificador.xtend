@@ -29,7 +29,7 @@ class Minificador {
 		val indice = new IndiceMinificado
 		indice.indiceInflacion = gasto.indiceInflacion
 		indice.detalles.addAll(gasto.detallesMensuales) 
-		
+		indice
 	}
 	
 }
